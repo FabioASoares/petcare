@@ -1,0 +1,42 @@
+import 'package:petcenter/modules/example/datasource/example_datasource.dart';
+import 'package:petcenter/modules/example/domain/usecase/example_use_case.dart';
+import 'package:petcenter/modules/example/presentation/example_controller.dart';
+import 'package:petcenter/modules/example/repository/example_repository.dart';
+
+import '../../../injection/petcenter_modules.dart';
+import '../service/example_service.dart';
+
+class ExampleModule {
+  static const String _moduleName = 'Example';
+
+  static void init() {
+    final module = PetCenterModules.createModule(_moduleName);
+
+    module.register<ExampleService>(ExampleServiceImpl());
+
+    module.register<ExampleDataSource>(
+      ExampleDataSourceImpl(module.get<ExampleService>()),
+    );
+
+    module.register<ExampleRepository>(
+      ExampleRepositoryImpl(module.get<ExampleDataSource>()),
+    );
+
+    module.register<ExampleUseCase>(
+      ExampleUseCaseImpl(module.get<ExampleRepository>()),
+    );
+
+    module.registerFactory<ExampleController>(
+      () => ExampleController(module.get<ExampleUseCase>()),
+    );
+  }
+
+  static void dispose() {
+    PetCenterModules.disposeModule(_moduleName);
+  }
+
+  static ExampleController getController() {
+    final module = PetCenterModules.getModule(_moduleName);
+    return module.get<ExampleController>();
+  }
+}

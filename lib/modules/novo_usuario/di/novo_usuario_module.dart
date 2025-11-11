@@ -1,0 +1,42 @@
+import 'package:petcenter/modules/novo_usuario/datasource/novo_usuario_datasource.dart';
+import 'package:petcenter/modules/novo_usuario/domain/usecase/novo_usuario_use_case.dart';
+import 'package:petcenter/modules/novo_usuario/presentation/novo_usuario_controller.dart';
+import 'package:petcenter/modules/novo_usuario/repository/novo_usuario_repository.dart';
+
+import '../../../core/injection/petcenter_modules.dart';
+import '../service/novo_usuario_service.dart';
+
+class NovoUsuarioModule {
+  static const String _moduleName = 'NovoUsuario';
+
+  static void init() {
+    final module = PetCenterModules.createModule(_moduleName);
+
+    module.register<NovoUsuarioService>(NovoUsuarioServiceImpl());
+
+    module.register<NovoUsuarioDataSource>(
+      NovoUsuarioDataSourceImpl(module.get<NovoUsuarioService>()),
+    );
+
+    module.register<NovoUsuarioRepository>(
+      NovoUsuarioRepositoryImpl(module.get<NovoUsuarioDataSource>()),
+    );
+
+    module.register<NovoUsuarioUseCase>(
+      NovoUsuarioUseCaseImpl(module.get<NovoUsuarioRepository>()),
+    );
+
+    module.registerFactory<NovoUsuarioController>(
+      () => NovoUsuarioController(module.get<NovoUsuarioUseCase>()),
+    );
+  }
+
+  static void dispose() {
+    PetCenterModules.disposeModule(_moduleName);
+  }
+
+  static NovoUsuarioController getController() {
+    final module = PetCenterModules.getModule(_moduleName);
+    return module.get<NovoUsuarioController>();
+  }
+}

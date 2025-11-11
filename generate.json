@@ -1,0 +1,46 @@
+[ 
+    {
+        "type": "folder",
+        "name": "lib/modules/{{module}}/domain/entities"
+    },
+    {
+        "type": "file",
+        "name": "lib/modules/{{module}}/datasource/{{module}}_datasource.dart",
+        "text": "import '../service/{{module}}_service.dart';\n\nabstract class {{class}}DataSource {}\n\nclass {{class}}DataSourceImpl extends {{class}}DataSource {\n  final {{class}}Service _{{var}}Service;\n\n  {{class}}DataSourceImpl(this._{{var}}Service);\n}\n"
+    },
+    {
+        "type": "file",
+        "name": "lib/modules/{{module}}/di/{{module}}_module.dart",
+        "text": "import 'package:petcenter/modules/{{module}}/datasource/{{module}}_datasource.dart';\nimport 'package:petcenter/modules/{{module}}/domain/usecase/{{module}}_use_case.dart';\nimport 'package:petcenter/modules/{{module}}/presentation/{{module}}_controller.dart';\nimport 'package:petcenter/modules/{{module}}/repository/{{module}}_repository.dart';\n\nimport '../../../core/injection/petcenter_modules.dart';\nimport '../service/{{module}}_service.dart';\n\nclass {{class}}Module {\n  static const String _moduleName = '{{class}}';\n\n  static void init() {\n    final module = PetCenterModules.createModule(_moduleName);\n\n    module.register<{{class}}Service>({{class}}ServiceImpl());\n\n    module.register<{{class}}DataSource>(\n      {{class}}DataSourceImpl(module.get<{{class}}Service>()),\n    );\n\n    module.register<{{class}}Repository>(\n      {{class}}RepositoryImpl(module.get<{{class}}DataSource>()),\n    );\n\n    module.register<{{class}}UseCase>(\n      {{class}}UseCaseImpl(module.get<{{class}}Repository>()),\n    );\n\n    module.registerFactory<{{class}}Controller>(\n      () => {{class}}Controller(module.get<{{class}}UseCase>()),\n    );\n  }\n\n  static void dispose() {\n    PetCenterModules.disposeModule(_moduleName);\n  }\n\n  static {{class}}Controller getController() {\n    final module = PetCenterModules.getModule(_moduleName);\n    return module.get<{{class}}Controller>();\n  }\n}\n"
+    },
+    {
+        "type": "file",
+        "name": "lib/modules/{{module}}/domain/usecase/{{module}}_use_case.dart",
+        "text": "import '../../repository/{{module}}_repository.dart';\n\nabstract class {{class}}UseCase {}\n\nclass {{class}}UseCaseImpl implements {{class}}UseCase {\n  final {{class}}Repository _{{var}}Repository;\n\n  {{class}}UseCaseImpl(this._{{var}}Repository);\n}\n"
+    },
+    {
+        "type": "file",
+        "name": "lib/modules/{{module}}/repository/{{module}}_repository.dart",
+        "text": "import '../datasource/{{module}}_datasource.dart';\n\nabstract class {{class}}Repository {\n \n}\n\nclass {{class}}RepositoryImpl implements {{class}}Repository {\n  final {{class}}DataSource _dataSource;\n\n  {{class}}RepositoryImpl(this._dataSource);\n\n}\n"
+    },
+    {
+        "type": "file",
+        "name": "lib/modules/{{module}}/state/{{module}}_state.dart",
+        "text": "abstract class {{class}}State {}\n\nclass Initial{{class}}State extends {{class}}State {}\n\nclass Success{{class}}State extends {{class}}State {\n  final String message;\n\n  Success{{class}}State(this.message);\n}\n\nclass Loading{{class}}State extends {{class}}State {}\n\nclass Error{{class}}State extends {{class}}State {\n  final String message;\n\n  Error{{class}}State(this.message);\n}"
+    },
+    {
+        "type": "file",
+        "name": "lib/modules/{{module}}/service/{{module}}_service.dart",
+        "text": "abstract class {{class}}Service {}\n\nclass {{class}}ServiceImpl implements {{class}}Service {}"
+    },
+    {
+        "type": "file",
+        "name": "lib/modules/{{module}}/presentation/{{module}}_controller.dart",
+        "text": "import 'package:flutter/material.dart';\nimport 'package:petcenter/modules/{{module}}/state/{{module}}_state.dart';\n\nimport '../domain/usecase/{{module}}_use_case.dart';\n\nclass {{class}}Controller extends ValueNotifier<{{class}}State> {\n  final {{class}}UseCase _useCase;\n\n  {{class}}Controller(this._useCase) : super(Initial{{class}}State());\n}\n"
+    },
+    {
+        "type": "file",
+        "name": "lib/modules/{{module}}/presentation/{{module}}_page.dart",
+        "text": "import 'package:flutter/material.dart';\nimport 'package:petcenter/modules/{{module}}/di/{{module}}_module.dart';\nimport 'package:petcenter/modules/{{module}}/state/{{module}}_state.dart';\n\nimport '{{module}}_controller.dart';\n\nclass {{class}}Page extends StatefulWidget {\n  const {{class}}Page({Key? key}) : super(key: key);\n\n  @override\n  State<{{class}}Page> createState() => _{{class}}PageState();\n}\n\nclass _{{class}}PageState extends State<{{class}}Page> {\n  late {{class}}Controller _controller;\n\n  @override\n  void initState() {\n    super.initState();\n\n    {{class}}Module.init();\n    _controller = {{class}}Module.getController();\n  }\n\n  @override\n  void dispose() {\n    {{class}}Module.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: const Text(\"{{class}}\"),\n      ),\n      body: const Center(\n        child: Text(\"{{class}}\"),\n      ),\n    );\n  }\n}\n"
+    }
+]
