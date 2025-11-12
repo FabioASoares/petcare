@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/pets/di/pets_module.dart';
-import 'package:petcenter/modules/pets/state/pets_state.dart';
+import 'package:petcare/modules/pets/di/pets_module.dart';
 
 import 'pets_controller.dart';
 
 class PetsPage extends StatefulWidget {
-  const PetsPage({Key? key}) : super(key: key);
+  const PetsPage({super.key});
 
   @override
   State<PetsPage> createState() => _PetsPageState();

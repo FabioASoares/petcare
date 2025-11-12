@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:petcenter/core/crashlytics/crashlytics.dart';
+import 'package:petcare/core/crashlytics/crashlytics.dart';
 
 final Interceptor _interceptor = InterceptorsWrapper(
   onRequest: (

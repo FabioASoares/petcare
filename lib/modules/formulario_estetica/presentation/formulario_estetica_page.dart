@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/formulario_estetica/di/formulario_estetica_module.dart';
-import 'package:petcenter/modules/formulario_estetica/state/formulario_estetica_state.dart';
+import 'package:petcare/modules/formulario_estetica/di/formulario_estetica_module.dart';
 
 import 'formulario_estetica_controller.dart';
 
 class FormularioEsteticaPage extends StatefulWidget {
-  const FormularioEsteticaPage({Key? key}) : super(key: key);
+  const FormularioEsteticaPage({super.key});
 
   @override
   State<FormularioEsteticaPage> createState() => _FormularioEsteticaPageState();

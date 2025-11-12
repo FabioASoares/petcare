@@ -1,25 +1,31 @@
-import 'package:petcenter/modules/login/datasource/login_datasource.dart';
-import 'package:petcenter/modules/login/domain/usecase/login_use_case.dart';
-import 'package:petcenter/modules/login/presentation/login_controller.dart';
-import 'package:petcenter/modules/login/repository/login_repository.dart';
+import 'package:dio/dio.dart';
+import 'package:petcare/modules/login/datasource/login_datasource.dart';
+import 'package:petcare/modules/login/domain/usecase/login_use_case.dart';
+import 'package:petcare/modules/login/presentation/login_controller.dart';
+import 'package:petcare/modules/login/repository/login_repository.dart';
+import 'package:petcare/services/sevices.dart';
 
-import '../../../core/injection/petcenter_modules.dart';
+import '../../../core/injection/petcare_modules.dart';
 import '../service/login_service.dart';
 
 class LoginModule {
   static const String _moduleName = 'Login';
 
   static void init() {
-    final module = PetCenterModules.createModule(_moduleName);
+    final module = PetCareModules.createModule(_moduleName);
 
-    module.register<LoginService>(LoginServiceImpl());
+    module.register<Dio>(Dio());
 
-    module.register<LoginDataSource>(
-      LoginDataSourceImpl(module.get<LoginService>()),
+    module.register<GetServices>(ServicesImpl(module.get<Dio>()));
+
+    module.register<LoginService>(LoginServiceImpl(module.get<GetServices>()));
+
+    module.register<LoginRemoteDataSource>(
+      LoginRemoteDataSourceImpl(module.get<LoginService>()),
     );
 
     module.register<LoginRepository>(
-      LoginRepositoryImpl(module.get<LoginDataSource>()),
+      LoginRepositoryImpl(module.get<LoginRemoteDataSource>()),
     );
 
     module.register<LoginUseCase>(
@@ -32,11 +38,11 @@ class LoginModule {
   }
 
   static void dispose() {
-    PetCenterModules.disposeModule(_moduleName);
+    PetCareModules.disposeModule(_moduleName);
   }
 
   static LoginController getController() {
-    final module = PetCenterModules.getModule(_moduleName);
+    final module = PetCareModules.getModule(_moduleName);
     return module.get<LoginController>();
   }
 }

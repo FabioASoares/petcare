@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/perfil/di/perfil_module.dart';
-import 'package:petcenter/modules/perfil/state/perfil_state.dart';
+import 'package:petcare/modules/perfil/di/perfil_module.dart';
 
 import 'perfil_controller.dart';
 
 class PerfilPage extends StatefulWidget {
-  const PerfilPage({Key? key}) : super(key: key);
+  const PerfilPage({super.key});
 
   @override
   State<PerfilPage> createState() => _PerfilPageState();

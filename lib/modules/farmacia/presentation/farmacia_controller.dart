@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/farmacia/state/farmacia_state.dart';
+import 'package:petcare/modules/farmacia/state/farmacia_state.dart';
 
 import '../domain/usecase/farmacia_use_case.dart';
 

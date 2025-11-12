@@ -1,16 +1,16 @@
-import 'package:petcenter/modules/farmacia/datasource/farmacia_datasource.dart';
-import 'package:petcenter/modules/farmacia/domain/usecase/farmacia_use_case.dart';
-import 'package:petcenter/modules/farmacia/presentation/farmacia_controller.dart';
-import 'package:petcenter/modules/farmacia/repository/farmacia_repository.dart';
+import 'package:petcare/modules/farmacia/datasource/farmacia_datasource.dart';
+import 'package:petcare/modules/farmacia/domain/usecase/farmacia_use_case.dart';
+import 'package:petcare/modules/farmacia/presentation/farmacia_controller.dart';
+import 'package:petcare/modules/farmacia/repository/farmacia_repository.dart';
 
-import '../../../core/injection/petcenter_modules.dart';
+import '../../../core/injection/petcare_modules.dart';
 import '../service/farmacia_service.dart';
 
 class FarmaciaModule {
   static const String _moduleName = 'Farmacia';
 
   static void init() {
-    final module = PetCenterModules.createModule(_moduleName);
+    final module = PetCareModules.createModule(_moduleName);
 
     module.register<FarmaciaService>(FarmaciaServiceImpl());
 
@@ -32,11 +32,11 @@ class FarmaciaModule {
   }
 
   static void dispose() {
-    PetCenterModules.disposeModule(_moduleName);
+    PetCareModules.disposeModule(_moduleName);
   }
 
   static FarmaciaController getController() {
-    final module = PetCenterModules.getModule(_moduleName);
+    final module = PetCareModules.getModule(_moduleName);
     return module.get<FarmaciaController>();
   }
 }

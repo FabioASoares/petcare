@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/perfil/state/perfil_state.dart';
+import 'package:petcare/modules/perfil/state/perfil_state.dart';
 
 import '../domain/usecase/perfil_use_case.dart';
 

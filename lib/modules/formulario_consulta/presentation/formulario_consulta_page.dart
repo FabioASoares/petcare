@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/formulario_consulta/di/formulario_consulta_module.dart';
-import 'package:petcenter/modules/formulario_consulta/state/formulario_consulta_state.dart';
+import 'package:petcare/modules/formulario_consulta/di/formulario_consulta_module.dart';
 
 import 'formulario_consulta_controller.dart';
 
 class FormularioConsultaPage extends StatefulWidget {
-  const FormularioConsultaPage({Key? key}) : super(key: key);
+  const FormularioConsultaPage({super.key});
 
   @override
   State<FormularioConsultaPage> createState() => _FormularioConsultaPageState();
