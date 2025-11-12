@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:petcenter/core/extension/double_extensions.dart';
-import 'package:petcenter/core/helper/petcare_text.dart';
+import 'package:petcare/core/extension/double_extensions.dart';
+import 'package:petcare/core/helper/petcare_text.dart';
 
 class PetCareTextButton extends StatelessWidget {
   final String title;

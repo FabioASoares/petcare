@@ -1,7 +1,7 @@
-import 'petcenter_injection.dart';
+import 'petcare_injection.dart';
 
-class PetCenterModule {
-  final PetCenterInjection _injection = PetCenterInjection();
+class PetCareModule {
+  final PetCareInjection _injection = PetCareInjection();
   void dispose() => _injection.dispose();
   void register<T>(T value) {
     _injection.register<T>(value);

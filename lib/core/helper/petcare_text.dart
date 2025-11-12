@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:petcenter/core/extension/double_extensions.dart';
+import 'package:petcare/core/extension/double_extensions.dart';
 
 class PetCareText extends StatelessWidget {
   final String? text;

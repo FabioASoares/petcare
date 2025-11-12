@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:petcenter/core/colors/petcare_colors.dart';
+import 'package:petcare/core/colors/petcare_colors.dart';
 
 class PetCareLoading extends StatelessWidget {
   final String mensagemCarregamento;

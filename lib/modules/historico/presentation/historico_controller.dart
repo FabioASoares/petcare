@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/historico/state/historico_state.dart';
+import 'package:petcare/modules/historico/state/historico_state.dart';
 
 import '../domain/usecase/historico_use_case.dart';
 

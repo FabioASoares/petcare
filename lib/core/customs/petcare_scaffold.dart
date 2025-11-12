@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:petcenter/core/colors/petcare_colors.dart';
-import 'package:petcenter/core/customs/petcare_loading.dart';
+import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/customs/petcare_loading.dart';
 
 class PetCareScaffold extends StatelessWidget {
   final PreferredSizeWidget? appBar;

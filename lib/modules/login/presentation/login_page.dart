@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/core/colors/petcare_colors.dart';
-import 'package:petcenter/core/customs/buttons/petcare_button.dart';
-import 'package:petcenter/core/customs/buttons/petcare_text_button.dart';
-import 'package:petcenter/core/customs/petcare_scaffold.dart';
-import 'package:petcenter/core/customs/petcare_textfield.dart';
-import 'package:petcenter/core/helper/navigator.dart';
-import 'package:petcenter/core/helper/petcare_text.dart';
-import 'package:petcenter/modules/home/presentation/home_page.dart';
-import 'package:petcenter/modules/login/di/login_module.dart';
-import 'package:petcenter/modules/novo_usuario/presentation/novo_usuario_page.dart';
+import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/customs/buttons/petcare_button.dart';
+import 'package:petcare/core/customs/buttons/petcare_text_button.dart';
+import 'package:petcare/core/customs/petcare_scaffold.dart';
+import 'package:petcare/core/customs/petcare_textfield.dart';
+import 'package:petcare/core/helper/navigator.dart';
+import 'package:petcare/core/helper/petcare_text.dart';
+import 'package:petcare/modules/home/presentation/home_page.dart';
+import 'package:petcare/modules/login/di/login_module.dart';
+import 'package:petcare/modules/novo_usuario/presentation/novo_usuario_page.dart';
 
 import 'login_controller.dart';
 

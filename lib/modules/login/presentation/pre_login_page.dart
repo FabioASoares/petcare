@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:petcenter/core/colors/petcare_colors.dart';
-import 'package:petcenter/core/customs/buttons/petcare_button.dart';
-import 'package:petcenter/core/helper/navigator.dart';
-import 'package:petcenter/modules/login/di/login_module.dart';
-import 'package:petcenter/modules/login/presentation/login_controller.dart';
-import 'package:petcenter/modules/login/presentation/login_page.dart';
+import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/customs/buttons/petcare_button.dart';
+import 'package:petcare/core/helper/navigator.dart';
+import 'package:petcare/modules/login/di/login_module.dart';
+import 'package:petcare/modules/login/presentation/login_controller.dart';
+import 'package:petcare/modules/login/presentation/login_page.dart';
 
 class PreLoginPage extends StatefulWidget {
   const PreLoginPage({super.key});

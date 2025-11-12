@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/formulario_exame/di/formulario_exame_module.dart';
-import 'package:petcenter/modules/formulario_exame/state/formulario_exame_state.dart';
+import 'package:petcare/modules/formulario_exame/di/formulario_exame_module.dart';
 
 import 'formulario_exame_controller.dart';
 
 class FormularioExamePage extends StatefulWidget {
-  const FormularioExamePage({Key? key}) : super(key: key);
+  const FormularioExamePage({super.key});
 
   @override
   State<FormularioExamePage> createState() => _FormularioExamePageState();

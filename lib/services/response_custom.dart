@@ -1,5 +1,4 @@
-import 'package:petcenter/core/helper/status_code_network_helper.dart';
-
+import 'package:petcare/core/helper/status_code_network_helper.dart';
 
 class ResponseCustom {
   final int? statusCode;

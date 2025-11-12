@@ -1,16 +1,16 @@
-import 'package:petcenter/modules/formulario_estetica/datasource/formulario_estetica_datasource.dart';
-import 'package:petcenter/modules/formulario_estetica/domain/usecase/formulario_estetica_use_case.dart';
-import 'package:petcenter/modules/formulario_estetica/presentation/formulario_estetica_controller.dart';
-import 'package:petcenter/modules/formulario_estetica/repository/formulario_estetica_repository.dart';
+import 'package:petcare/modules/formulario_estetica/datasource/formulario_estetica_datasource.dart';
+import 'package:petcare/modules/formulario_estetica/domain/usecase/formulario_estetica_use_case.dart';
+import 'package:petcare/modules/formulario_estetica/presentation/formulario_estetica_controller.dart';
+import 'package:petcare/modules/formulario_estetica/repository/formulario_estetica_repository.dart';
 
-import '../../../core/injection/petcenter_modules.dart';
+import '../../../core/injection/petcare_modules.dart';
 import '../service/formulario_estetica_service.dart';
 
 class FormularioEsteticaModule {
   static const String _moduleName = 'FormularioEstetica';
 
   static void init() {
-    final module = PetCenterModules.createModule(_moduleName);
+    final module = PetCareModules.createModule(_moduleName);
 
     module.register<FormularioEsteticaService>(FormularioEsteticaServiceImpl());
 
@@ -19,7 +19,8 @@ class FormularioEsteticaModule {
     );
 
     module.register<FormularioEsteticaRepository>(
-      FormularioEsteticaRepositoryImpl(module.get<FormularioEsteticaDataSource>()),
+      FormularioEsteticaRepositoryImpl(
+          module.get<FormularioEsteticaDataSource>()),
     );
 
     module.register<FormularioEsteticaUseCase>(
@@ -27,16 +28,17 @@ class FormularioEsteticaModule {
     );
 
     module.registerFactory<FormularioEsteticaController>(
-      () => FormularioEsteticaController(module.get<FormularioEsteticaUseCase>()),
+      () =>
+          FormularioEsteticaController(module.get<FormularioEsteticaUseCase>()),
     );
   }
 
   static void dispose() {
-    PetCenterModules.disposeModule(_moduleName);
+    PetCareModules.disposeModule(_moduleName);
   }
 
   static FormularioEsteticaController getController() {
-    final module = PetCenterModules.getModule(_moduleName);
+    final module = PetCareModules.getModule(_moduleName);
     return module.get<FormularioEsteticaController>();
   }
 }

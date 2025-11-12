@@ -1,12 +1,12 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:petcenter/core/colors/petcare_colors.dart';
-import 'package:petcenter/core/customs/buttons/petcare_button.dart';
-import 'package:petcenter/core/customs/petcare_scaffold.dart';
-import 'package:petcenter/core/helper/image_helper.dart';
-import 'package:petcenter/core/helper/petcare_text.dart';
-import 'package:petcenter/modules/novo_usuario/di/novo_usuario_module.dart';
+import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/customs/buttons/petcare_button.dart';
+import 'package:petcare/core/customs/petcare_scaffold.dart';
+import 'package:petcare/core/helper/image_helper.dart';
+import 'package:petcare/core/helper/petcare_text.dart';
+import 'package:petcare/modules/novo_usuario/di/novo_usuario_module.dart';
 
 import 'novo_usuario_controller.dart';
 

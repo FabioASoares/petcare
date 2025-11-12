@@ -1,16 +1,16 @@
-import 'package:petcenter/modules/formulario_consulta/datasource/formulario_consulta_datasource.dart';
-import 'package:petcenter/modules/formulario_consulta/domain/usecase/formulario_consulta_use_case.dart';
-import 'package:petcenter/modules/formulario_consulta/presentation/formulario_consulta_controller.dart';
-import 'package:petcenter/modules/formulario_consulta/repository/formulario_consulta_repository.dart';
+import 'package:petcare/modules/formulario_consulta/datasource/formulario_consulta_datasource.dart';
+import 'package:petcare/modules/formulario_consulta/domain/usecase/formulario_consulta_use_case.dart';
+import 'package:petcare/modules/formulario_consulta/presentation/formulario_consulta_controller.dart';
+import 'package:petcare/modules/formulario_consulta/repository/formulario_consulta_repository.dart';
 
-import '../../../core/injection/petcenter_modules.dart';
+import '../../../core/injection/petcare_modules.dart';
 import '../service/formulario_consulta_service.dart';
 
 class FormularioConsultaModule {
   static const String _moduleName = 'FormularioConsulta';
 
   static void init() {
-    final module = PetCenterModules.createModule(_moduleName);
+    final module = PetCareModules.createModule(_moduleName);
 
     module.register<FormularioConsultaService>(FormularioConsultaServiceImpl());
 
@@ -19,7 +19,8 @@ class FormularioConsultaModule {
     );
 
     module.register<FormularioConsultaRepository>(
-      FormularioConsultaRepositoryImpl(module.get<FormularioConsultaDataSource>()),
+      FormularioConsultaRepositoryImpl(
+          module.get<FormularioConsultaDataSource>()),
     );
 
     module.register<FormularioConsultaUseCase>(
@@ -27,16 +28,17 @@ class FormularioConsultaModule {
     );
 
     module.registerFactory<FormularioConsultaController>(
-      () => FormularioConsultaController(module.get<FormularioConsultaUseCase>()),
+      () =>
+          FormularioConsultaController(module.get<FormularioConsultaUseCase>()),
     );
   }
 
   static void dispose() {
-    PetCenterModules.disposeModule(_moduleName);
+    PetCareModules.disposeModule(_moduleName);
   }
 
   static FormularioConsultaController getController() {
-    final module = PetCenterModules.getModule(_moduleName);
+    final module = PetCareModules.getModule(_moduleName);
     return module.get<FormularioConsultaController>();
   }
 }

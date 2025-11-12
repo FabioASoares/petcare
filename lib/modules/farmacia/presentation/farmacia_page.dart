@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/farmacia/di/farmacia_module.dart';
-import 'package:petcenter/modules/farmacia/state/farmacia_state.dart';
+import 'package:petcare/modules/farmacia/di/farmacia_module.dart';
 
 import 'farmacia_controller.dart';
 
 class FarmaciaPage extends StatefulWidget {
-  const FarmaciaPage({Key? key}) : super(key: key);
+  const FarmaciaPage({super.key});
 
   @override
   State<FarmaciaPage> createState() => _FarmaciaPageState();

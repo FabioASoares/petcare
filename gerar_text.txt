@@ -1,16 +1,16 @@
-import 'package:petcenter/modules/example/datasource/example_datasource.dart';
-import 'package:petcenter/modules/example/domain/usecase/example_use_case.dart';
-import 'package:petcenter/modules/example/presentation/example_controller.dart';
-import 'package:petcenter/modules/example/repository/example_repository.dart';
+import 'package:petcare/modules/example/datasource/example_datasource.dart';
+import 'package:petcare/modules/example/domain/usecase/example_use_case.dart';
+import 'package:petcare/modules/example/presentation/example_controller.dart';
+import 'package:petcare/modules/example/repository/example_repository.dart';
 
-import '../../../injection/petcenter_modules.dart';
+import '../../../injection/petcare_modules.dart';
 import '../service/example_service.dart';
 
 class ExampleModule {
   static const String _moduleName = 'Example';
 
   static void init() {
-    final module = PetCenterModules.createModule(_moduleName);
+    final module = PetCareModules.createModule(_moduleName);
 
     module.register<ExampleService>(ExampleServiceImpl());
 
@@ -32,11 +32,11 @@ class ExampleModule {
   }
 
   static void dispose() {
-    PetCenterModules.disposeModule(_moduleName);
+    PetCareModules.disposeModule(_moduleName);
   }
 
   static ExampleController getController() {
-    final module = PetCenterModules.getModule(_moduleName);
+    final module = PetCareModules.getModule(_moduleName);
     return module.get<ExampleController>();
   }
 }

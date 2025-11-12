@@ -1,4 +1,4 @@
-class PetCenterInjection {
+class PetCareInjection {
   final Map<Type, dynamic> _instances = {};
   final Map<Type, dynamic> _factories = {};
 

@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:petcenter/modules/historico/di/historico_module.dart';
-import 'package:petcenter/modules/historico/state/historico_state.dart';
+import 'package:petcare/modules/historico/di/historico_module.dart';
 
 import 'historico_controller.dart';
 
 class HistoricoPage extends StatefulWidget {
-  const HistoricoPage({Key? key}) : super(key: key);
+  const HistoricoPage({super.key});
 
   @override
   State<HistoricoPage> createState() => _HistoricoPageState();

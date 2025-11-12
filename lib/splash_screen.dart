@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:petcenter/modules/login/presentation/pre_login_page.dart';
+import 'package:petcare/modules/login/presentation/pre_login_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

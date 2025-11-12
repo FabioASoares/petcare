@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:petcenter/core/colors/petcare_colors.dart';
-import 'package:petcenter/core/extension/double_extensions.dart';
+import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/extension/double_extensions.dart';
 
 class PetCareTextField extends StatelessWidget {
   final TextEditingController? controller;

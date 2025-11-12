@@ -1,4 +1,4 @@
-import 'package:petcenter/core/error/failure_generic_error.dart';
+import 'package:petcare/core/error/failure_generic_error.dart';
 
 class UnauthorizedUserException implements FailureGenericError {
   @override

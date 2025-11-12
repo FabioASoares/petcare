@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:petcenter/splash_screen.dart';
+import 'package:petcare/splash_screen.dart';
 
 import 'core/crashlytics/crashlytics.dart';
 import 'services/sevices.dart';
@@ -25,10 +25,10 @@ class PetCare extends StatefulWidget {
   const PetCare({super.key});
 
   @override
-  State<PetCare> createState() => _PetCenterState();
+  State<PetCare> createState() => _PetCareState();
 }
 
-class _PetCenterState extends State<PetCare> {
+class _PetCareState extends State<PetCare> {
   @override
   void initState() {
     super.initState();
