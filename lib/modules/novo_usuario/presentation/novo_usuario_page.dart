@@ -105,10 +105,10 @@ class _NovoUsuarioPageState extends State<NovoUsuarioPage> {
                 paddings: const [10, 6, 10, 40],
                 controller: _controller.senhaController,
                 prefixIcon: Icons.lock,
+                placeholder: "Digite sua senha",
+                obscureText: !_controller.showPasswordText,
                 suffixIcon: _controller.changeSuffixIcon(),
                 onTapSuffixIcon: () => _controller.showPassword(),
-                placeholder: "Crie uma senha",
-                obscureText: _controller.showPasswordText,
               ),
               PetCareButton(
                 title: "Criar Conta",

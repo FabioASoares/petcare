@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:petcare/main_navigator.dart';
 import 'package:petcare/splash_screen.dart';
 
 import 'core/crashlytics/crashlytics.dart';
@@ -48,10 +49,8 @@ class _PetCareState extends State<PetCare> {
       supportedLocales: const [
         Locale('pt'),
       ],
-      home: Builder(
-        builder: (context) {
-          return const SplashScreen();
-        },
+      home: const MainNavigator(
+        widget: SplashScreen(),
       ),
       debugShowCheckedModeBanner: false,
     );

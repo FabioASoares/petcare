@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petcare/core/customs/petcare_scaffold.dart';
 import 'package:petcare/modules/home/di/home_module.dart';
 
 import 'home_controller.dart';
@@ -29,13 +30,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Home"),
-      ),
-      body: const Center(
-        child: Text("Home"),
-      ),
+    return const PetCareScaffold(
+      isLoading: false,
+      body: [
+        Center(
+          child: Text("Home"),
+        ),
+      ],
     );
   }
 }
