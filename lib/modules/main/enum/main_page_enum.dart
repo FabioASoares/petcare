@@ -1,28 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart'; // ou FontAwesome
 
 enum MainPageEnum {
-  home(
-    Icons.fact_check_outlined,
-    "Início",
-  ),
-  agendamento(
-    Icons.medical_services,
-    "Agendamento",
-  ),
-  meusPets(
-    Icons.pets,
-    "Meus Pets",
-  ),
-  profile(
-    Icons.person_rounded,
-    "Minha Conta",
-  );
+  home("Central"),
+  agendamento("Agendamento"),
+  meusPets("Meus Pets"),
+  profile("Minha Conta");
 
-  final IconData iconData;
   final String label;
+  const MainPageEnum(this.label);
 
-  const MainPageEnum(
-    this.iconData,
-    this.label,
-  );
+  IconData get iconData {
+    switch (this) {
+      case MainPageEnum.home:
+        return MdiIcons.paw;
+      case MainPageEnum.agendamento:
+        return Icons.edit_calendar;
+      case MainPageEnum.meusPets:
+        return MdiIcons.dogSide;
+      case MainPageEnum.profile:
+        return MdiIcons.accountCogOutline;
+    }
+  }
 }

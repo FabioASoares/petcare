@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/customs/petcare_scaffold.dart';
 import 'package:petcare/modules/perfil/di/perfil_module.dart';
 
 import 'perfil_controller.dart';
@@ -29,13 +31,17 @@ class _PerfilPageState extends State<PerfilPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PetCareScaffold(
+      isLoading: false,
       appBar: AppBar(
+        backgroundColor: ColorsPC.system.background,
         title: const Text("Perfil"),
       ),
-      body: const Center(
-        child: Text("Perfil"),
-      ),
+      body: const [
+        Center(
+          child: Text("Perfil"),
+        ),
+      ],
     );
   }
 }
