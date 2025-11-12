@@ -11,7 +11,7 @@ class PetCareTextField extends StatelessWidget {
   final InputDecoration? customDecoration;
   final List<TextInputFormatter>? inputFormatter;
   final IconData? prefixIcon;
-  final Widget? suffixIcon;
+  final IconData? suffixIcon;
   final double? width;
   final String? helperText;
   final double? height;
@@ -26,6 +26,7 @@ class PetCareTextField extends StatelessWidget {
   final Color? iconColor;
   final FocusNode? focusNode;
   final Function(String)? callbackText;
+  final Function()? onTapSuffixIcon;
   const PetCareTextField({
     super.key,
     this.controller,
@@ -50,6 +51,7 @@ class PetCareTextField extends StatelessWidget {
     this.lengthLimiting = 50,
     this.focusNode,
     this.callbackText,
+    this.onTapSuffixIcon,
   });
 
   @override
@@ -102,7 +104,13 @@ class PetCareTextField extends StatelessWidget {
           prefixIcon: prefixIcon != null
               ? Icon(prefixIcon, color: iconColor ?? ColorsPC.cinza.x300)
               : null,
-          suffixIcon: suffixIcon,
+          suffixIcon: suffixIcon != null
+              ? GestureDetector(
+                  onTap: onTapSuffixIcon,
+                  child:
+                      Icon(suffixIcon, color: iconColor ?? ColorsPC.cinza.x300),
+                )
+              : null,
           contentPadding:
               const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
           enabledBorder: borderStyle,
