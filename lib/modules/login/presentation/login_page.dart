@@ -6,8 +6,8 @@ import 'package:petcare/core/customs/petcare_scaffold.dart';
 import 'package:petcare/core/customs/textfields/petcare_textfield.dart';
 import 'package:petcare/core/helper/navigator.dart';
 import 'package:petcare/core/helper/petcare_text.dart';
-import 'package:petcare/modules/home/presentation/home_page.dart';
 import 'package:petcare/modules/login/di/login_module.dart';
+import 'package:petcare/modules/main/presentation/main_page.dart';
 import 'package:petcare/modules/novo_usuario/presentation/novo_usuario_page.dart';
 import 'package:petcare/modules/utils/toasts_message.dart';
 
@@ -32,7 +32,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void dispose() {
-    LoginModule.dispose();
     super.dispose();
   }
 
@@ -51,12 +50,6 @@ class _LoginPageState extends State<LoginPage> {
                     "assets/images/logo_app.png",
                     width: 300,
                   ),
-                ),
-              ),
-              const Center(
-                child: Text(
-                  "Bem vindo de volta!",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
                 ),
               ),
               PetCareTextField(
@@ -118,7 +111,7 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void irHomePage() {
-    NavigatorPC.pushAndRemoveUntil(context, const HomePage());
+    NavigatorPC.pushAndRemoveUntil(context, const MainPage());
   }
 
   void showErrorToast() {
