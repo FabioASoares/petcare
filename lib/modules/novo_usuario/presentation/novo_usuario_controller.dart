@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:petcare/modules/novo_usuario/datasource/model/user_model.dart';
+import 'package:petcare/modules/novo_usuario/domain/entities/user_entity.dart';
 import 'package:petcare/modules/novo_usuario/state/novo_usuario_state.dart';
 
 import '../domain/usecase/novo_usuario_use_case.dart';
@@ -19,6 +20,8 @@ class NovoUsuarioController extends ValueNotifier<NovoUsuarioState> {
   final ValueNotifier<String> _errorMessage = ValueNotifier("");
   final ValueNotifier<String> _successMessage = ValueNotifier("");
   final ValueNotifier<File?> _fotoPerfil = ValueNotifier<File?>(null);
+  final ValueNotifier<UserEntity?> _usuarioLogado =
+      ValueNotifier<UserEntity?>(null);
 
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
@@ -39,6 +42,7 @@ class NovoUsuarioController extends ValueNotifier<NovoUsuarioState> {
         _isLoadingFoto,
         _successMessage,
         _fotoPerfil,
+        _usuarioLogado,
       ]);
 
   bool get isLoading => _isLoading.value;
@@ -46,6 +50,7 @@ class NovoUsuarioController extends ValueNotifier<NovoUsuarioState> {
   String get errorMessage => _errorMessage.value;
   String get successMessage => _successMessage.value;
   File? get fotoPerfil => _fotoPerfil.value;
+  UserEntity? get usuarioLogado => _usuarioLogado.value;
 
   final ValueNotifier<bool> _isLoadingFoto = ValueNotifier(false);
   bool get isLoadingFoto => _isLoadingFoto.value;
@@ -105,7 +110,10 @@ class NovoUsuarioController extends ValueNotifier<NovoUsuarioState> {
     final response = await _useCase.criarConta(userModel);
     _isLoading.value = false;
     response.fold(
-      (success) => successFunction(),
+      (success) {
+        _usuarioLogado.value = success;
+        successFunction();
+      },
       (error) {
         _errorMessage.value = error.message;
         errorFunction();
@@ -122,6 +130,7 @@ class NovoUsuarioController extends ValueNotifier<NovoUsuarioState> {
           fotoPerfil != null ? base64Encode(fotoPerfil!.readAsBytesSync()) : "",
       nacionalidade: "Brasileiro",
       userID: getUserID,
+      nomeUsuario: nomeController.text,
     );
   }
 

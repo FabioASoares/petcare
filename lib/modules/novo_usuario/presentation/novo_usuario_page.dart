@@ -142,6 +142,11 @@ class _NovoUsuarioPageState extends State<NovoUsuarioPage> {
   }
 
   void irHomeScreen() {
-    NavigatorPC.pushAndRemoveUntil(context, const HomePage());
+    NavigatorPC.pushAndRemoveUntil(
+      context,
+      HomePage(
+        usuarioLogado: _controller.usuarioLogado!,
+      ),
+    );
   }
 }

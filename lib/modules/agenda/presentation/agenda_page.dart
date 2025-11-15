@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/customs/petcare_scaffold.dart';
 import 'package:petcare/modules/agenda/di/agenda_module.dart';
-import 'package:petcare/modules/agenda/state/agenda_state.dart';
 
 import 'agenda_controller.dart';
 
 class AgendaPage extends StatefulWidget {
-  const AgendaPage({Key? key}) : super(key: key);
+  const AgendaPage({super.key});
 
   @override
   State<AgendaPage> createState() => _AgendaPageState();
@@ -30,13 +31,17 @@ class _AgendaPageState extends State<AgendaPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return PetCareScaffold(
+      isLoading: false,
       appBar: AppBar(
+        backgroundColor: ColorsPC.system.background,
         title: const Text("Agenda"),
       ),
-      body: const Center(
-        child: Text("Agenda"),
-      ),
+      body: const [
+        Center(
+          child: Text("Agenda"),
+        ),
+      ],
     );
   }
 }

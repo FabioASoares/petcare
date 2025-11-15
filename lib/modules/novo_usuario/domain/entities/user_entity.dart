@@ -8,6 +8,7 @@ class UserEntity {
   final String fotoPerfil;
   final String nacionalidade;
   final String userID;
+  final String nomeUsuario;
 
   UserEntity({
     required this.email,
@@ -16,6 +17,7 @@ class UserEntity {
     required this.fotoPerfil,
     required this.nacionalidade,
     required this.userID,
+    required this.nomeUsuario,
   });
 
   Map<String, dynamic> toMap() {
@@ -26,6 +28,7 @@ class UserEntity {
       "fotoPerfil": fotoPerfil,
       "nacionalidade": nacionalidade,
       "userID": userID,
+      "nomeUsuario": nomeUsuario,
     };
   }
 
@@ -38,6 +41,7 @@ class UserEntity {
       fotoPerfil: obj.getString("fotoPerfil", ""),
       nacionalidade: obj.getString("nacionalidade", ""),
       userID: obj.getString("userID", ""),
+      nomeUsuario: obj.getString("nomeUsuario", ""),
     );
   }
 
@@ -49,6 +53,7 @@ class UserEntity {
       fotoPerfil: model.fotoPerfil,
       nacionalidade: model.nacionalidade,
       userID: model.userID,
+      nomeUsuario: model.nomeUsuario,
     );
   }
 }

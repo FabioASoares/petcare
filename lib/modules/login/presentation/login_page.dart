@@ -111,7 +111,12 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void irHomePage() {
-    NavigatorPC.pushAndRemoveUntil(context, const MainPage());
+    NavigatorPC.pushAndRemoveUntil(
+      context,
+      MainPage(
+        usuarioLogado: _controller.usuarioLogado!,
+      ),
+    );
   }
 
   void showErrorToast() {
