@@ -22,39 +22,42 @@ class PetCareMenuButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PetCareGridButton(
-      buttons: [
-        PetCareCardButton.inside(
-          icon: MdiIcons.stethoscope,
-          title: "Consulta",
-          onTap: onTapConsulta,
-        ),
-        PetCareCardButton.inside(
-          icon: MdiIcons.shower,
-          title: "Banho e Tosa",
-          onTap: onTapBanhoTosa,
-        ),
-        PetCareCardButton.inside(
-          icon: Icons.pets,
-          title: "Meus Pets",
-          onTap: onTapMeusPets,
-        ),
-        PetCareCardButton.inside(
-          icon: MdiIcons.pill,
-          title: "Farmácia",
-          onTap: onTapFarmacia,
-        ),
-        PetCareCardButton.inside(
-          icon: MdiIcons.needle,
-          title: "Vacinas",
-          onTap: onTapVacinas,
-        ),
-        PetCareCardButton.inside(
-          icon: MdiIcons.flaskEmptyOutline,
-          title: "Exames",
-          onTap: onTapExames,
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 20),
+      child: PetCareGridButton(
+        buttons: [
+          PetCareCardButton.inside(
+            icon: MdiIcons.stethoscope,
+            title: "Consulta",
+            onTap: onTapConsulta,
+          ),
+          PetCareCardButton.inside(
+            icon: MdiIcons.shower,
+            title: "Banho e Tosa",
+            onTap: onTapBanhoTosa,
+          ),
+          PetCareCardButton.inside(
+            icon: Icons.pets,
+            title: "Meus Pets",
+            onTap: onTapMeusPets,
+          ),
+          PetCareCardButton.inside(
+            icon: MdiIcons.pill,
+            title: "Farmácia",
+            onTap: onTapFarmacia,
+          ),
+          PetCareCardButton.inside(
+            icon: MdiIcons.needle,
+            title: "Vacinas",
+            onTap: onTapVacinas,
+          ),
+          PetCareCardButton.inside(
+            icon: MdiIcons.flaskEmptyOutline,
+            title: "Exames",
+            onTap: onTapExames,
+          ),
+        ],
+      ),
     );
   }
 }
