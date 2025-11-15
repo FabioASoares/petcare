@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:petcare/modules/login/state/login_state.dart';
+import 'package:petcare/modules/novo_usuario/domain/entities/user_entity.dart';
 
 import '../domain/usecase/login_use_case.dart';
 
@@ -15,6 +16,8 @@ class LoginController extends ValueNotifier<LoginState> {
   final ValueNotifier<bool> _showPasswordText = ValueNotifier<bool>(false);
   final ValueNotifier<String> _errorMessage = ValueNotifier<String>("");
   final ValueNotifier<String> _successMessage = ValueNotifier<String>("");
+  final ValueNotifier<UserEntity?> _usuarioLogado =
+      ValueNotifier<UserEntity?>(null);
 
   TextEditingController emailController = TextEditingController();
   TextEditingController senhaController = TextEditingController();
@@ -27,12 +30,14 @@ class LoginController extends ValueNotifier<LoginState> {
         _errorMessage,
         _successMessage,
         _showPasswordText,
+        _usuarioLogado,
       ]);
 
   bool get isLoading => _isLoading.value;
   bool get showPasswordText => _showPasswordText.value;
   String get errorMessage => _errorMessage.value;
   String get successMessage => _successMessage.value;
+  UserEntity? get usuarioLogado => _usuarioLogado.value;
 
   Future<void> initData() async {
     await verificarPermissoes();
@@ -69,7 +74,10 @@ class LoginController extends ValueNotifier<LoginState> {
     final response = await _useCase.logarPetCare(mountUserID);
     _isLoading.value = false;
     response.fold(
-      (success) => successFunction(),
+      (success) {
+        _usuarioLogado.value = success;
+        successFunction();
+      },
       (error) {
         _errorMessage.value = error.message;
         errorFunction();

@@ -7,6 +7,7 @@ class UserModel {
   final String fotoPerfil;
   final String nacionalidade;
   final String userID;
+  final String nomeUsuario;
 
   UserModel({
     required this.email,
@@ -15,6 +16,7 @@ class UserModel {
     required this.fotoPerfil,
     required this.nacionalidade,
     required this.userID,
+    required this.nomeUsuario,
   });
 
   Map<String, dynamic> toMap() {
@@ -25,6 +27,7 @@ class UserModel {
       "fotoPerfil": fotoPerfil,
       "nacionalidade": nacionalidade,
       "userID": userID,
+      "nomeUsuario": nomeUsuario,
     };
   }
 
@@ -37,6 +40,7 @@ class UserModel {
       fotoPerfil: obj.getString("fotoPerfil", ""),
       nacionalidade: obj.getString("nacionalidade", ""),
       userID: obj.getString("userID", ""),
+      nomeUsuario: obj.getString("nomeUsuario", ""),
     );
   }
 }

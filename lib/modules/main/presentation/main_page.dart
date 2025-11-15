@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:petcare/core/customs/petcare_nav_bar.dart';
 import 'package:petcare/modules/main/di/main_module.dart';
 import 'package:petcare/modules/main/presentation/main_controller.dart';
+import 'package:petcare/modules/novo_usuario/domain/entities/user_entity.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  final UserEntity usuarioLogado;
+  const MainPage({
+    super.key,
+    required this.usuarioLogado,
+  });
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -19,6 +24,7 @@ class _MainPageState extends State<MainPage> {
 
     MainModule.init();
     _controller = MainModule.getController();
+    _controller.init(widget.usuarioLogado);
   }
 
   @override
