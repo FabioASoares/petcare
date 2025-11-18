@@ -1,7 +1,9 @@
+import 'package:dio/dio.dart';
 import 'package:petcare/modules/home/datasource/home_datasource.dart';
 import 'package:petcare/modules/home/domain/usecase/home_use_case.dart';
 import 'package:petcare/modules/home/presentation/home_controller.dart';
 import 'package:petcare/modules/home/repository/home_repository.dart';
+import 'package:petcare/services/sevices.dart';
 
 import '../../../core/injection/petcare_modules.dart';
 import '../service/home_service.dart';
@@ -12,7 +14,14 @@ class HomeModule {
   static void init() {
     final module = PetCareModules.createModule(_moduleName);
 
-    module.register<HomeService>(HomeServiceImpl());
+    module.register<Dio>(Dio());
+
+    module.register<GetServices>(ServicesImpl(module.get<Dio>()));
+    module.register<DeleteServices>(ServicesImpl(module.get<Dio>()));
+    module.register<HomeService>(HomeServiceImpl(
+      module.get<GetServices>(),
+      module.get<DeleteServices>(),
+    ));
 
     module.register<HomeDataSource>(
       HomeDataSourceImpl(module.get<HomeService>()),

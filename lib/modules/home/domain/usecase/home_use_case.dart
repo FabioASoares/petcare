@@ -1,4 +1,5 @@
 import 'package:petcare/modules/agenda/domain/entities/historico_agendamento_entity.dart';
+import 'package:petcare/modules/home/utils/home_typedefs.dart';
 
 import '../../repository/home_repository.dart';
 
@@ -7,12 +8,13 @@ abstract class HomeUseCase {
       List<HistoricoAgendamentoEntity> listaAgendamento);
   List<HistoricoAgendamentoEntity> getProximosAtendimento(
       List<HistoricoAgendamentoEntity> listaAgendamento);
+  FutureListPetEntity getListaPet(String idTutor);
 }
 
 class HomeUseCaseImpl implements HomeUseCase {
-  final HomeRepository _homeRepository;
+  final HomeRepository _repository;
 
-  HomeUseCaseImpl(this._homeRepository);
+  HomeUseCaseImpl(this._repository);
 
   @override
   List<HistoricoAgendamentoEntity> getHistoricoAtendimento(
@@ -42,5 +44,10 @@ class HomeUseCaseImpl implements HomeUseCase {
       return apenasData.isAfter(dataAtual) ||
           apenasData.isAtSameMomentAs(dataAtual);
     }).toList();
+  }
+
+  @override
+  FutureListPetEntity getListaPet(String idTutor) {
+    return _repository.getListaPet(idTutor);
   }
 }

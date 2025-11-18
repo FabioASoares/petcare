@@ -22,6 +22,7 @@ class PetCareScaffold extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final String loadingMensagem;
   final String asset;
+  final bool showNavBar;
   const PetCareScaffold({
     super.key,
     this.appBar,
@@ -43,6 +44,7 @@ class PetCareScaffold extends StatelessWidget {
     this.onRefresh,
     this.padding,
     this.asset = "",
+    this.showNavBar = false,
   });
 
   @override
@@ -59,7 +61,7 @@ class PetCareScaffold extends StatelessWidget {
         backgroundColor: ColorsPC.system.background,
         resizeToAvoidBottomInset: true,
         appBar: appBar,
-        bottomNavigationBar: _buildBottomBar(),
+        bottomSheet: _buildBottomBar(),
         body: SafeArea(
           child: Stack(
             children: [
@@ -95,6 +97,8 @@ class PetCareScaffold extends StatelessWidget {
   }
 
   Widget _buildBottomBar() {
+    if (!showNavBar) return const SizedBox.shrink();
+
     return bottomSheet != null
         ? Padding(
             padding: const EdgeInsets.only(

@@ -3,7 +3,7 @@ import 'package:petcare/core/colors/petcare_colors.dart';
 import 'package:petcare/core/customs/buttons/petcare_button.dart';
 import 'package:petcare/core/customs/buttons/petcare_text_button.dart';
 import 'package:petcare/core/customs/petcare_scaffold.dart';
-import 'package:petcare/core/customs/textfields/petcare_textfield.dart';
+import 'package:petcare/core/customs/textfields/petcare_textfield_login.dart';
 import 'package:petcare/core/helper/navigator.dart';
 import 'package:petcare/core/helper/petcare_text.dart';
 import 'package:petcare/modules/login/di/login_module.dart';
@@ -52,13 +52,13 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              PetCareTextField(
+              PetCareTextFieldLogin(
                 paddings: const [10, 60, 10, 20],
                 controller: _controller.emailController,
                 prefixIcon: Icons.pets,
                 placeholder: "Digite seu e-mail",
               ),
-              PetCareTextField(
+              PetCareTextFieldLogin(
                 paddings: const [10, 0, 10, 0],
                 controller: _controller.senhaController,
                 prefixIcon: Icons.lock,

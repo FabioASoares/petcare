@@ -19,29 +19,32 @@ class PetCareCardFoto extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.maxFinite,
-      height: 0.24.h,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: ColorsPC.azul.x150.withOpacity(0.3),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.only(top: 20, bottom: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PetCareCircleAvatar(
-              loadingState: isLoadingFoto,
-              file: foto,
-            ),
-            PetCareText.h5(
-              "Foto do seu Amigo Pet",
-              paddings: const [0, 20, 0, 0],
-            ),
-            PetCareText.body2("Clique para inserir uma foto"),
-          ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.maxFinite,
+        height: 0.24.h,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: ColorsPC.azul.x150.withOpacity(0.3),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 20, bottom: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              PetCareCircleAvatar(
+                loadingState: isLoadingFoto,
+                file: foto,
+              ),
+              PetCareText.h5(
+                "Foto do seu Amigo Pet",
+                paddings: const [0, 20, 0, 0],
+              ),
+              PetCareText.body2("Clique para inserir uma foto"),
+            ],
+          ),
         ),
       ),
     );

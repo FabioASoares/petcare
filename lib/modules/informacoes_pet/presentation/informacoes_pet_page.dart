@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:petcare/modules/formulario_pet/domain/entities/formulario_pet_entity.dart';
 import 'package:petcare/modules/informacoes_pet/di/informacoes_pet_module.dart';
-import 'package:petcare/modules/pets/domain/entities/pet_entity.dart';
 
 import 'informacoes_pet_controller.dart';
 
 class InformacoesPetPage extends StatefulWidget {
-  final PetEntity informacoesPet;
+  final FormularioPetEntity informacoesPet;
   const InformacoesPetPage({
     super.key,
     required this.informacoesPet,

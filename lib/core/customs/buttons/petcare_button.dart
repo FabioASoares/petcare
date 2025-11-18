@@ -19,6 +19,7 @@ class PetCareButton extends StatelessWidget {
   final double? borderRadius;
   final double? spacingLeftIcon;
   final double? spacingRightIcon;
+  final double? height;
 
   final double? iconRotation;
 
@@ -39,6 +40,7 @@ class PetCareButton extends StatelessWidget {
     this.iconRotation,
     this.spacingLeftIcon = 10,
     this.spacingRightIcon = 10,
+    this.height,
   });
 
   @override
@@ -48,7 +50,7 @@ class PetCareButton extends StatelessWidget {
       child: GestureDetector(
         onTap: enable ? onTap : () {},
         child: Container(
-          height: 60,
+          height: height ?? 60,
           decoration: BoxDecoration(
             color: buttonColor ?? colorButton(),
             borderRadius: BorderRadius.circular(borderRadius ?? 30.0),
