@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:petcare/core/colors/petcare_colors.dart';
@@ -15,12 +13,12 @@ import 'package:petcare/modules/farmacia/presentation/farmacia_page.dart';
 import 'package:petcare/modules/formulario_consulta/presentation/formulario_consulta_page.dart';
 import 'package:petcare/modules/formulario_estetica/presentation/formulario_estetica_page.dart';
 import 'package:petcare/modules/formulario_exame/presentation/formulario_exame_page.dart';
+import 'package:petcare/modules/formulario_pet/domain/entities/formulario_pet_entity.dart';
 import 'package:petcare/modules/formulario_pet/presentation/formulario_pet_page.dart';
 import 'package:petcare/modules/home/di/home_module.dart';
 import 'package:petcare/modules/home/presentation/components/petcare_menu_buttons.dart';
 import 'package:petcare/modules/informacoes_pet/presentation/informacoes_pet_page.dart';
 import 'package:petcare/modules/novo_usuario/domain/entities/user_entity.dart';
-import 'package:petcare/modules/pets/domain/entities/pet_entity.dart';
 import 'package:petcare/modules/pets/presentation/pets_page.dart';
 import 'package:petcare/modules/vacinacao/presentation/vacinacao_page.dart';
 
@@ -70,7 +68,9 @@ class _HomePageState extends State<HomePage> {
               children: [
                 CircleAvatar(
                   backgroundColor: ColorsPC.turquesa.x400,
-                  backgroundImage: FileImage(_controller.fotoPerfil!),
+                  backgroundImage: _controller.fotoPerfil != null
+                      ? FileImage(_controller.fotoPerfil!)
+                      : null,
                 ),
                 PetCareText.h5(
                   "Olá, ${_controller.usuarioLogado.nomeUsuario}",
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
             PetCareGridButton(
               spacing: 0,
               buttons: [
-                ...montagemCardPets(_controller.listPets),
+                ...montagemCardPets(_controller.meusPetsList ?? []),
                 PetCareCardButton.outside(
                   title: "Adicionar",
                   onTap: irTelaAdicionarPet,
@@ -192,12 +192,15 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  List<Widget> montagemCardPets(List<PetEntity> list) {
+  List<Widget> montagemCardPets(List<FormularioPetEntity> list) {
     return list.map((item) => cardMeuPet(item)).toList();
   }
 
   void irTelaConsultas() {
-    NavigatorPC.push(context, const FormularioConsultaPage());
+    NavigatorPC.push(context, const FormularioConsultaPage()).then(
+      (value) => _controller.initDados(),
+    );
+    _controller.getListaPets();
   }
 
   void irTelaBanhoTosa() {
@@ -221,7 +224,14 @@ class _HomePageState extends State<HomePage> {
   }
 
   void irTelaAdicionarPet() {
-    NavigatorPC.push(context, const FormularioPetPage());
+    NavigatorPC.pushNoNavigationBottomBar(
+      context,
+      FormularioPetPage(
+        usuario: widget.usuarioLogado,
+      ),
+    ).then(
+      (value) => _controller.initDados(),
+    );
   }
 
   Widget cardProximosAtendimentos(HistoricoAgendamentoEntity agendamentos) {
@@ -239,9 +249,9 @@ class _HomePageState extends State<HomePage> {
     return const Column();
   }
 
-  Widget cardMeuPet(PetEntity meuPet) {
+  Widget cardMeuPet(FormularioPetEntity meuPet) {
     return PetCareCardButton.outside(
-      asset: File(meuPet.fotoPet),
+      asset: meuPet.fotoPet,
       title: meuPet.nomePet,
       onTap: () => irTelaInformacoesPet(meuPet),
       radius: 100,
@@ -249,7 +259,7 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  void irTelaInformacoesPet(PetEntity meuPet) {
+  void irTelaInformacoesPet(FormularioPetEntity meuPet) {
     NavigatorPC.push(context, InformacoesPetPage(informacoesPet: meuPet));
   }
 }

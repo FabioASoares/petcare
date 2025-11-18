@@ -3,14 +3,14 @@ import 'package:petcare/core/colors/petcare_colors.dart';
 import 'package:petcare/core/customs/buttons/petcare_button.dart';
 import 'package:petcare/core/customs/petcare_circle_avatar.dart';
 import 'package:petcare/core/customs/petcare_scaffold.dart';
-import 'package:petcare/core/customs/textfields/petcare_textfield.dart';
+import 'package:petcare/core/customs/textfields/petcare_textfield_login.dart';
 import 'package:petcare/core/helper/image_helper.dart';
 import 'package:petcare/core/helper/navigator.dart';
 import 'package:petcare/core/helper/petcare_text.dart';
 import 'package:petcare/modules/home/presentation/home_page.dart';
 import 'package:petcare/modules/novo_usuario/di/novo_usuario_module.dart';
 
-import '../../../core/customs/textfields/date_picker_textfield.dart';
+import '../../../core/customs/textfields/date_picker_textfield_login.dart';
 import '../../utils/toasts_message.dart';
 import 'novo_usuario_controller.dart';
 
@@ -77,31 +77,31 @@ class _NovoUsuarioPageState extends State<NovoUsuarioPage> {
                 "Dados Cadastrais",
                 paddings: const [10, 0, 0, 20],
               ),
-              PetCareTextField(
+              PetCareTextFieldLogin(
                 paddings: const [10, 6, 10, 20],
                 controller: _controller.nomeController,
                 prefixIcon: Icons.person_2,
                 placeholder: "Como você se chama?",
               ),
-              PetCareTextField(
+              PetCareTextFieldLogin(
                 paddings: const [10, 6, 10, 20],
                 controller: _controller.emailController,
                 prefixIcon: Icons.alternate_email,
                 placeholder: "Qual seu e-mail?",
               ),
-              PetCareDatePickerField(
+              PetCareDatePickerFieldLogin(
                 paddings: const [10, 6, 10, 20],
                 controller: _controller.dtNascimentolController,
                 prefixIcon: Icons.pets,
                 placeholder: "Em que ano você nasceu?",
               ),
-              PetCareTextField(
+              PetCareTextFieldLogin(
                 paddings: const [10, 6, 10, 20],
                 controller: _controller.telefoneController,
                 prefixIcon: Icons.phone,
                 placeholder: "Qual seu telefone para contato?",
               ),
-              PetCareTextField(
+              PetCareTextFieldLogin(
                 paddings: const [10, 6, 10, 40],
                 controller: _controller.senhaController,
                 prefixIcon: Icons.lock,

@@ -4,7 +4,7 @@ import 'package:intl/intl.dart';
 import 'package:petcare/core/colors/petcare_colors.dart';
 import 'package:petcare/core/extension/double_extensions.dart';
 
-class PetCareDatePickerField extends StatefulWidget {
+class PetCareDatePickerFieldLogin extends StatefulWidget {
   final String title;
   final String placeholder;
   final TextEditingController? controller;
@@ -18,7 +18,7 @@ class PetCareDatePickerField extends StatefulWidget {
   final DateTime? maxDate;
   final IconData? prefixIcon;
 
-  const PetCareDatePickerField({
+  const PetCareDatePickerFieldLogin({
     super.key,
     this.title = "",
     this.placeholder = "",
@@ -35,10 +35,12 @@ class PetCareDatePickerField extends StatefulWidget {
   });
 
   @override
-  State<PetCareDatePickerField> createState() => _PetCareDatePickerFieldState();
+  State<PetCareDatePickerFieldLogin> createState() =>
+      _PetCareDatePickerFieldLoginState();
 }
 
-class _PetCareDatePickerFieldState extends State<PetCareDatePickerField> {
+class _PetCareDatePickerFieldLoginState
+    extends State<PetCareDatePickerFieldLogin> {
   late TextEditingController _controller;
 
   @override

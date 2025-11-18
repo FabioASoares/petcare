@@ -1,7 +1,8 @@
-import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/extension/string_extensions.dart';
 import 'package:petcare/core/helper/petcare_text.dart';
 
 enum PetCareCardButtonType {
@@ -11,7 +12,7 @@ enum PetCareCardButtonType {
 
 class PetCareCardButton extends StatelessWidget {
   final IconData? icon;
-  final File? asset;
+  final String? asset;
   final String title;
   final Function() onTap;
   final BoxDecoration? decoration;
@@ -36,7 +37,7 @@ class PetCareCardButton extends StatelessWidget {
   factory PetCareCardButton.inside({
     Key? key,
     IconData? icon,
-    File? asset,
+    String? asset,
     required String title,
     required Function() onTap,
     BoxDecoration? decoration,
@@ -61,7 +62,7 @@ class PetCareCardButton extends StatelessWidget {
   factory PetCareCardButton.outside({
     Key? key,
     IconData? icon,
-    File? asset,
+    String? asset,
     required String title,
     required Function() onTap,
     BoxDecoration? decoration,
@@ -87,7 +88,8 @@ class PetCareCardButton extends StatelessWidget {
   Widget build(BuildContext context) {
     const double w = 80;
     const double h = 80;
-
+    Uint8List base64String =
+        asset?.imageFromBase64String ?? "".imageFromBase64String;
     final card = Container(
       width: w,
       height: h,
@@ -108,8 +110,8 @@ class PetCareCardButton extends StatelessWidget {
           if (asset != null && icon == null)
             ClipRRect(
               borderRadius: BorderRadius.circular(radius),
-              child: Image.file(
-                asset!,
+              child: Image.memory(
+                base64String,
                 width: w * 1,
                 height: h * 1,
                 fit: BoxFit.cover,

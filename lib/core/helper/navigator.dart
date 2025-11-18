@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:petcare/main_navigator.dart';
 
 abstract class NavigatorPC {
   static Future<void> push(context, Widget widget) async {
@@ -15,6 +16,12 @@ abstract class NavigatorPC {
         context,
         MaterialPageRoute(builder: (BuildContext context) => widget),
         (Route<dynamic> route) => false);
+  }
+
+  static Future<void> pushNoNavigationBottomBar(context, Widget widget) async {
+    await globalNavigator.currentState!.push(
+      MaterialPageRoute(builder: (_) => widget),
+    );
   }
 
   static void pop(BuildContext context) {

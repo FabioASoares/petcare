@@ -1,6 +1,6 @@
 import 'package:map_fields/map_fields.dart';
 import 'package:petcare/core/utils/typedefs.dart';
-import 'package:petcare/modules/formulario_pet/datasource/model/formulario_pet_model.dart';
+import 'package:petcare/modules/formulario_pet/datasource/model/formulario_cadastro_pet.dart';
 
 class FormularioPetEntity {
   final String? idPet;

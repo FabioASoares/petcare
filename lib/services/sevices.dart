@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 
 import 'dio.dart';
@@ -73,21 +71,21 @@ class ServicesImpl
     Map<String, dynamic>? queryParameters,
   ) async {
     try {
-      Map<String, String> header = {
-        'Content-type': 'application/json',
-      };
-
       Response response = await _dio.get(
         urlString,
         queryParameters: queryParameters,
-        options: Options(headers: header),
       );
 
       final Map<String, List<String>> headersMap = {};
       response.headers.forEach((key, values) {
         headersMap[key] = List<String>.from(values);
       });
-
+      _dio.interceptors.add(LogInterceptor(
+        requestBody: true,
+        request: true,
+        responseBody: true,
+        responseHeader: false,
+      ));
       return ResponseCustom(
         statusCode: response.statusCode!,
         data: response.data,
