@@ -11,3 +11,7 @@ extension StringExtensions on String {
 
   Uint8List get imageFromBase64String => base64Decode(this);
 }
+
+extension NullabeStringExtensions on String? {
+  bool get nullOrEmpty => this == "" || this == null;
+}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:petcare/core/colors/petcare_colors.dart';
+import 'package:petcare/core/extension/num_extensions.dart';
 import 'package:petcare/core/helper/petcare_text.dart';
 
 class PetCareCard extends StatelessWidget {
@@ -69,9 +70,12 @@ class PetCareCard extends StatelessWidget {
                     ),
                   ),
                   if (rightIcon != null)
-                    Icon(
-                      rightIcon,
-                      color: rightIconColor,
+                    Padding(
+                      padding: EdgeInsets.only(right: 0.03.w, top: 0.01.h),
+                      child: Icon(
+                        rightIcon,
+                        color: rightIconColor,
+                      ),
                     ),
                 ],
               ),
