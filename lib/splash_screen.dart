@@ -15,7 +15,6 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Redireciona após 3 segundos
     Timer(const Duration(seconds: 6), () {
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) => const PreLoginPage()),

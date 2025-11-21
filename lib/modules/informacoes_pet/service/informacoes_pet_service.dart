@@ -1,3 +1,5 @@
 abstract class InformacoesPetService {}
 
-class InformacoesPetServiceImpl implements InformacoesPetService {}
+class InformacoesPetServiceImpl implements InformacoesPetService {
+  InformacoesPetServiceImpl();
+}

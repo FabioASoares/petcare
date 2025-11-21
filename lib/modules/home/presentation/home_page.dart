@@ -19,7 +19,6 @@ import 'package:petcare/modules/home/di/home_module.dart';
 import 'package:petcare/modules/home/presentation/components/petcare_menu_buttons.dart';
 import 'package:petcare/modules/informacoes_pet/presentation/informacoes_pet_page.dart';
 import 'package:petcare/modules/novo_usuario/domain/entities/user_entity.dart';
-import 'package:petcare/modules/pets/presentation/pets_page.dart';
 import 'package:petcare/modules/vacinacao/presentation/vacinacao_page.dart';
 
 import 'home_controller.dart';
@@ -121,7 +120,6 @@ class _HomePageState extends State<HomePage> {
             PetCareMenuButtons(
               onTapConsulta: irTelaConsultas,
               onTapBanhoTosa: irTelaBanhoTosa,
-              onTapMeusPets: irTelaMeusPets,
               onTapFarmacia: irTelaFarmacia,
               onTapVacinas: irTelaVacinas,
               onTapExames: irTelaExames,
@@ -208,10 +206,6 @@ class _HomePageState extends State<HomePage> {
   void irTelaBanhoTosa() {
     NavigatorPC.pushNoNavigationBottomBar(
         context, const FormularioEsteticaPage());
-  }
-
-  void irTelaMeusPets() {
-    NavigatorPC.pushNoNavigationBottomBar(context, const PetsPage());
   }
 
   void irTelaFarmacia() {

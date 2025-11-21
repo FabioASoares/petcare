@@ -1,4 +1,4 @@
-import 'package:petcare/modules/informacoes_pet/datasource/informacoes_pet_datasource.dart';
+import 'package:petcare/modules/informacoes_pet/datasource/informacoes_pet_remote_datasource.dart';
 import 'package:petcare/modules/informacoes_pet/domain/usecase/informacoes_pet_use_case.dart';
 import 'package:petcare/modules/informacoes_pet/presentation/informacoes_pet_controller.dart';
 import 'package:petcare/modules/informacoes_pet/repository/informacoes_pet_repository.dart';
@@ -14,12 +14,13 @@ class InformacoesPetModule {
 
     module.register<InformacoesPetService>(InformacoesPetServiceImpl());
 
-    module.register<InformacoesPetDataSource>(
-      InformacoesPetDataSourceImpl(module.get<InformacoesPetService>()),
+    module.register<InformacoesPetRemoteDataSource>(
+      InformacoesPetRemoteDataSourceImpl(module.get<InformacoesPetService>()),
     );
 
     module.register<InformacoesPetRepository>(
-      InformacoesPetRepositoryImpl(module.get<InformacoesPetDataSource>()),
+      InformacoesPetRepositoryImpl(
+          module.get<InformacoesPetRemoteDataSource>()),
     );
 
     module.register<InformacoesPetUseCase>(

@@ -90,6 +90,8 @@ class PetCareScaffold extends StatelessWidget {
             builder: (context, constraints) {
               return onRefresh != null
                   ? RefreshIndicator(
+                      color: ColorsPC.system.pureWhite,
+                      backgroundColor: ColorsPC.turquesa.x400,
                       onRefresh: onRefresh!,
                       child: _buildBodyScaffold(
                         context,
