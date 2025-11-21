@@ -197,30 +197,33 @@ class _HomePageState extends State<HomePage> {
   }
 
   void irTelaConsultas() {
-    NavigatorPC.push(context, const FormularioConsultaPage()).then(
+    NavigatorPC.pushNoNavigationBottomBar(
+            context, const FormularioConsultaPage())
+        .then(
       (value) => _controller.initDados(),
     );
     _controller.getListaPets();
   }
 
   void irTelaBanhoTosa() {
-    NavigatorPC.push(context, const FormularioEsteticaPage());
+    NavigatorPC.pushNoNavigationBottomBar(
+        context, const FormularioEsteticaPage());
   }
 
   void irTelaMeusPets() {
-    NavigatorPC.push(context, const PetsPage());
+    NavigatorPC.pushNoNavigationBottomBar(context, const PetsPage());
   }
 
   void irTelaFarmacia() {
-    NavigatorPC.push(context, const FarmaciaPage());
+    NavigatorPC.pushNoNavigationBottomBar(context, const FarmaciaPage());
   }
 
   void irTelaVacinas() {
-    NavigatorPC.push(context, const VacinacaoPage());
+    NavigatorPC.pushNoNavigationBottomBar(context, const VacinacaoPage());
   }
 
   void irTelaExames() {
-    NavigatorPC.push(context, const FormularioExamePage());
+    NavigatorPC.pushNoNavigationBottomBar(context, const FormularioExamePage());
   }
 
   void irTelaAdicionarPet() {
@@ -260,6 +263,9 @@ class _HomePageState extends State<HomePage> {
   }
 
   void irTelaInformacoesPet(FormularioPetEntity meuPet) {
-    NavigatorPC.push(context, InformacoesPetPage(informacoesPet: meuPet));
+    NavigatorPC.pushNoNavigationBottomBar(
+      context,
+      InformacoesPetPage(informacoesPet: meuPet),
+    );
   }
 }
