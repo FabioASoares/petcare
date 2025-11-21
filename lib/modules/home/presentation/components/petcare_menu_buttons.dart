@@ -6,7 +6,6 @@ import 'package:petcare/core/customs/buttons/petcare_grid_button.dart';
 class PetCareMenuButtons extends StatelessWidget {
   final Function() onTapConsulta;
   final Function() onTapBanhoTosa;
-  final Function() onTapMeusPets;
   final Function() onTapFarmacia;
   final Function() onTapVacinas;
   final Function() onTapExames;
@@ -14,7 +13,6 @@ class PetCareMenuButtons extends StatelessWidget {
     super.key,
     required this.onTapConsulta,
     required this.onTapBanhoTosa,
-    required this.onTapMeusPets,
     required this.onTapFarmacia,
     required this.onTapVacinas,
     required this.onTapExames,
@@ -35,11 +33,6 @@ class PetCareMenuButtons extends StatelessWidget {
             icon: MdiIcons.shower,
             title: "Banho e Tosa",
             onTap: onTapBanhoTosa,
-          ),
-          PetCareCardButton.inside(
-            icon: Icons.pets,
-            title: "Meus Pets",
-            onTap: onTapMeusPets,
           ),
           PetCareCardButton.inside(
             icon: MdiIcons.pill,

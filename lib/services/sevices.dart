@@ -80,12 +80,6 @@ class ServicesImpl
       response.headers.forEach((key, values) {
         headersMap[key] = List<String>.from(values);
       });
-      _dio.interceptors.add(LogInterceptor(
-        requestBody: true,
-        request: true,
-        responseBody: true,
-        responseHeader: false,
-      ));
       return ResponseCustom(
         statusCode: response.statusCode!,
         data: response.data,

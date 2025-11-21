@@ -1,12 +1,9 @@
-import '../datasource/informacoes_pet_datasource.dart';
+import '../datasource/informacoes_pet_remote_datasource.dart';
 
-abstract class InformacoesPetRepository {
- 
-}
+abstract class InformacoesPetRepository {}
 
 class InformacoesPetRepositoryImpl implements InformacoesPetRepository {
-  final InformacoesPetDataSource _dataSource;
+  final InformacoesPetRemoteDataSource _remote;
 
-  InformacoesPetRepositoryImpl(this._dataSource);
-
+  InformacoesPetRepositoryImpl(this._remote);
 }

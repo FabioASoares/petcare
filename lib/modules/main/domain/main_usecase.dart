@@ -27,7 +27,9 @@ class MainUseCaseImpl implements MainUseCase {
       case MainPageEnum.agendamento:
         return const AgendaPage();
       case MainPageEnum.meusPets:
-        return const PetsPage();
+        return PetsPage(
+          usuarioLogado: usuarioLogado,
+        );
       case MainPageEnum.profile:
         return const PerfilPage();
     }
