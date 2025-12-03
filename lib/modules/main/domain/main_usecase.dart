@@ -31,7 +31,9 @@ class MainUseCaseImpl implements MainUseCase {
           usuarioLogado: usuarioLogado,
         );
       case MainPageEnum.profile:
-        return const PerfilPage();
+        return PerfilPage(
+          dadosUsuario: usuarioLogado,
+        );
     }
   }
 }
